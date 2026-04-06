@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deep Space</title>
      <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+     <script src="https://unpkg.com/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+
 </head>
 <body>
 
@@ -13,13 +15,27 @@
 
         <img id="floor-pattern" src="https://static.vecteezy.com/system/resources/thumbnails/026/828/138/small/birthday-silver-triangular-confetti-png.png" />
         <img id="roof-pattern" src="https://static.vecteezy.com/system/resources/thumbnails/036/065/376/small/seamless-honeycomb-shape-motifs-pattern-beehive-or-bee-house-form-can-use-for-decoration-ornate-carpet-pattern-fashion-fabric-textile-tile-mosaic-wallpaper-wrapping-cover-background-etc-png.png" />
+        <img id="aperol" src="assets/aperol.png" />
+        <img id="germany" src="assets/germany.png" />
+        <img id="klaus" src="assets/klaus.png" />
+        <img id="waterfall" src="assets/waterfall.png" />
 
         <a-mixin id="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.75; roughness: 1" ></a-mixin>
         <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: .25; roughness: 1" ></a-mixin>
-        <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" ></a-mixin>
+        <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" class="floor" ></a-mixin>
         <a-mixin id="window" geometry="primitive: box; depth: 0.5" material="color: #f6eae6; metalness: 0.5; opacity: 0.25" ></a-mixin>
 
+        <a-asset-item id="bed" src="assets/bed.gltf"></a-asset-item>
+
     </a-assets>
+
+    <a-entity id="player" position="0 1.6 0">
+            <!-- camera -->
+            <a-entity id="camera" camera wasd-controls look-controls></a-entity>
+            <!-- hand controls -->
+            <a-entity id="left-hand" raycaster="objects: .floor" oculus-touch-controls="hand: left" blink-controls></a-entity>
+            <a-entity id="right-hand" raycaster="objects: .floor" oculus-touch-controls="hand: right" blink-controls></a-entity>
+    </a-entity>
 
     <a-entity mixin="floor" geometry="width: 5; depth: 50" material="repeat: 2 20;"></a-entity>
     <a-entity mixin="floor" geometry="width: 15; depth: 10" position="0 0 -30" material="repeat: 6 4;"></a-entity>
@@ -67,6 +83,22 @@
     <a-entity mixin="wall" geometry="width: 5; height: 7.5" position="7.5 3.75 27.5" rotation= "0 90 0"></a-entity>
 
     <a-entity mixin="window" geometry="width: 15; height: 7.5" position="0 3.75 -35"></a-entity>
+    <a-entity mixin="window" geometry="width: 5; height: 7.5" position="7.5 3.75 -32.5" rotation="0 90 0"></a-entity>
+    <a-entity mixin="window" geometry="width: 5; height: 7.5" position="-7.5 3.75 -32.5" rotation="0 90 0"></a-entity>
+    <a-entity mixin="window" geometry="width: 15; height: 7.5" position="0 3.75 35"></a-entity>
+    <a-entity mixin="window" geometry="width: 5; height: 7.5" position="7.5 3.75 32.5" rotation="0 90 0"></a-entity>
+    <a-entity mixin="window" geometry="width: 5; height: 7.5" position="-7.5 3.75 32.5" rotation="0 90 0"></a-entity>
+    <a-entity mixin="window" geometry="width: 7.5; height: 6" position="-7.5 3 5" rotation="0 90 0"></a-entity>
+    <a-entity mixin="window" geometry="width: 7.5; height: 6" position="7.5 3 -5" rotation="0 90 0"></a-entity>
+    <a-entity mixin="window" geometry="width: 7.5; height: 6" position="7.5 3 15" rotation="0 90 0"></a-entity>
+    <a-entity mixin="window" geometry="width: 7.5; height: 6" position="-7.5 3 -15" rotation="0 90 0"></a-entity>
+
+    <a-image src="#aperol" position="-3.5 3 -11.501" rotation="0 180 15" scale="0.65 0.75"></a-image>
+    <a-image src="#germany" position="-4.5 3.75 -11.501" rotation="0 180 -5" scale="0.65 0.75"></a-image>
+    <a-image src="#klaus" position="-5.5 2.75 -11.501" rotation="0 180 1" scale="0.65 0.75"></a-image>
+    <a-image src="#waterfall" position="-6.5 3.5 -11.501" rotation="0 180 10" scale="0.65 0.75"></a-image>
+
+    <a-gltf-model src="#bed"></a-gltf-model>
 
     </a-scene>
 
