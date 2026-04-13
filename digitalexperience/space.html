@@ -19,13 +19,18 @@
         <img id="germany" src="assets/germany.png" />
         <img id="klaus" src="assets/klaus.png" />
         <img id="waterfall" src="assets/waterfall.png" />
+        <img id="space" src="assets/space.webp" />
+        <img id="earth" src="assets/earth.webp" />
+        <img id="moon" src="assets/moon.png" />
+        <img id="exit" src="assets/exit.png" />
+        <img id="emergency" src="assets/emergencyicon.png" />
+        <img id="badge" src="assets/fmrlbadge.png" />
 
-        <a-mixin id="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.75; roughness: 1" ></a-mixin>
-        <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: .25; roughness: 1" ></a-mixin>
-        <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" class="floor" ></a-mixin>
-        <a-mixin id="window" geometry="primitive: box; depth: 0.5" material="color: #f6eae6; metalness: 0.5; opacity: 0.25" ></a-mixin>
-
-        <a-asset-item id="bed" src="assets/bed.gltf"></a-asset-item>
+        <a-mixin id="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
+        <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
+        <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" class="floor" shadow ></a-mixin>
+        <a-mixin id="window" geometry="primitive: box; depth: 0.5" material="color: #f6eae6; metalness: 0.5; opacity: 0.25" shadow ></a-mixin>
+        <a-mixin id="light" geometry="primitive: cylinder; radius: 0.125; height: 4.5" material="color: #6fc7b4; opacity: 0.75" shadow ></a-mixin>
 
     </a-assets>
 
@@ -36,6 +41,8 @@
             <a-entity id="left-hand" raycaster="objects: .floor" oculus-touch-controls="hand: left" blink-controls></a-entity>
             <a-entity id="right-hand" raycaster="objects: .floor" oculus-touch-controls="hand: right" blink-controls></a-entity>
     </a-entity>
+
+    <a-sky src="#space" repeat="10 10"></a-sky>
 
     <a-entity mixin="floor" geometry="width: 5; depth: 50" material="repeat: 2 20;"></a-entity>
     <a-entity mixin="floor" geometry="width: 15; depth: 10" position="0 0 -30" material="repeat: 6 4;"></a-entity>
@@ -93,12 +100,44 @@
     <a-entity mixin="window" geometry="width: 7.5; height: 6" position="7.5 3 15" rotation="0 90 0"></a-entity>
     <a-entity mixin="window" geometry="width: 7.5; height: 6" position="-7.5 3 -15" rotation="0 90 0"></a-entity>
 
+    <a-entity mixin="light" position="2.4 2.5 -25.1"></a-entity>
+    <a-entity mixin="light" position="-2.4 2.5 -25.1"></a-entity>
+    <a-entity mixin="light" position="2.4 2.5 25.1"></a-entity>
+    <a-entity mixin="light" position="-2.4 2.5 25.1"></a-entity>
+    <a-entity mixin="light" position="2.4 2.5 -8.65"></a-entity>
+    <a-entity mixin="light" position="2.4 2.5 -1.365"></a-entity>
+    <a-entity mixin="light" position="-2.4 2.5 -11.375"></a-entity>
+    <a-entity mixin="light" position="-2.4 2.5 -18.65"></a-entity>
+    <a-entity mixin="light" position="-2.4 2.5 8.65"></a-entity>
+    <a-entity mixin="light" position="-2.4 2.5 1.365"></a-entity>
+    <a-entity mixin="light" position="2.4 2.5 11.375"></a-entity>
+    <a-entity mixin="light" position="2.4 2.5 18.65"></a-entity>
+
+    <a-box position="0 4.6 -23" geometry="width: 2; depth: 0.3; height: 0.3" material="color:#cdd5d8; metalness: 0.5" shadow ></a-box>
+    <a-box position="0 4.6 23" geometry="width: 2; depth: 0.3; height: 0.3" material="color:#cdd5d8; metalness: 0.5" shadow ></a-box>
+    <a-box position="0 4.6 0" geometry="width: 2; depth: 0.3; height: 0.3" material="color:#cdd5d8; metalness: 0.5" shadow ></a-box>
+    <a-cylinder position="0 4.6 0" geometry="radius: 0.125; height: 46" rotation="90 0 0" material="emissive:#fff; opacity: 0.9" shadow ></a-cylinder>
+    <a-cylinder position="0.5 4.6 0" geometry="radius: 0.125; height: 46" rotation="90 0 0" material="emissive:#fff; opacity: 0.9" shadow ></a-cylinder>
+    <a-cylinder position="-0.5 4.6 0" geometry="radius: 0.125; height: 46" rotation="90 0 0" material="emissive:#fff; opacity: 0.9" shadow ></a-cylinder>
+
     <a-image src="#aperol" position="-3.5 3 -11.501" rotation="0 180 15" scale="0.65 0.75"></a-image>
     <a-image src="#germany" position="-4.5 3.75 -11.501" rotation="0 180 -5" scale="0.65 0.75"></a-image>
     <a-image src="#klaus" position="-5.5 2.75 -11.501" rotation="0 180 1" scale="0.65 0.75"></a-image>
-    <a-image src="#waterfall" position="-6.5 3.5 -11.501" rotation="0 180 10" scale="0.65 0.75"></a-image>
+    <a-image src="#waterfall" position="-6.5 3.5 -11.501" rotation="0 180 10" scale="0.65 0.75"></a-image>\
+    <a-image src="#exit" scale="2 0.7" rotation="0 180 0" position="0 5 -25.3"></a-image>
+    <a-image src="#exit" scale="2 0.7" position="0 5 25.3"></a-image>
+    <a-image src="#exit" scale="1 0.35" rotation="0 90 0" position="2.8 4.5 -5"></a-image>
+    <a-image src="#exit" scale="1 0.35" rotation="0 -90 0" position="-2.8 4.5 5"></a-image>
+    <a-image src="#emergency" scale="0.8 0.75" position="-2.8 4.6 4" rotation="0 90 0"></a-image>
+    <a-image src="#emergency" scale="0.8 0.75" position="-4.75 2.75 -25.3"></a-image>
+    <a-image src="#emergency" scale="0.8 0.75" position="3.75 2.75 11.51"></a-image>
+    <a-image src="#badge" scale="0.5 0.85" position="6.25 4.5 18.49"></a-image>
+    <a-image src="#badge" scale="0.5 0.85" position="-3.5 4.9 8.49"></a-image>
+    <a-image src="#badge" scale="0.5 0.85" position="-6.5 5 25.3"></a-image>
+    <a-image src="#badge" scale="0.5 0.85" position="2.24 3.5 -23.5" rotation="0 90 0"></a-image>
 
-    <a-gltf-model src="#bed"></a-gltf-model>
+    <a-sphere src="#earth" position="30 0 250" scale="10 10 10"></a-sphere>
+    <a-sphere src="#moon" position="20 10 230" scale="5 5 5"></a-sphere>
 
     </a-scene>
 
