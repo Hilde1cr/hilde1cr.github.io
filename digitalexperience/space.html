@@ -27,11 +27,16 @@
         <img id="badge" src="assets/fmrlbadge.png" />
         <img id="fmrl" src="assets/fmrlwordmark.png" />
         <img id="hive" src="assets/haibalogo.png" />
+        <img id="laika" src="assets/laikawordmark.png">
+        <img id="leaf" src="assets/leaficon.png">
+        <img id="lunea" src="assets/luneaicon.png">
+        <img id="luna" src="assets/luneaword.png">
+        <img id="mal" src="assets/malicon.png">
 
         <a-mixin id="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
-        <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
+        <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: 0.5; roughness: 0.5" shadow static-body ></a-mixin>
         <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" class="floor" shadow ></a-mixin>
-        <a-mixin id="window" geometry="primitive: box; depth: 0.5" material="color: #f6eae6; metalness: 0.5; opacity: 0.25" shadow ></a-mixin>
+        <a-mixin id="window" geometry="primitive: box; depth: 0.5" material="color: #f6eae6; metalness: 0.5; opacity: 0.25" shadow static-body ></a-mixin>
         <a-mixin id="light" geometry="primitive: cylinder; radius: 0.125; height: 4.5" material="color: #6fc7b4; opacity: 0.75" shadow ></a-mixin>
 
     </a-assets>
@@ -143,7 +148,34 @@
     <a-image src="#fmrl" scale="2.2 0.8" position="2.24 3.45 -22" rotation="0 270 0"></a-image>
     <a-image src="#hive" scale="2 2" position="4.75 3 -25.3" rotation="0 0 0"></a-image>
     <a-image src="#hive" scale="2 2" position="4.75 3 25.3" rotation="0 0 0"></a-image>
-    <a-image src="#hive" scale="0.75 0.75" position="5.3 4 11.51" rotation="0 0 0"></a-image>
+    <a-image src="#hive" scale="0.75 0.75" position="5.3 4 11.51" rotation="0 0 10"></a-image>
+    <a-image src="#hive" scale="0.75 0.75" position="6.5 2.75 11.51" rotation="0 0 -15"></a-image>
+    <a-image src="#hive" scale="1 1" position="-6.6 5.1 1.51"></a-image>
+    <a-image src="#laika" scale="2 0.6" position="2.24 2.2 -22" rotation="0 270 0"></a-image>
+    <a-image src="#laika" scale="2 0.6" position="4.75 3.45 18.49" rotation="0 180 0"></a-image>
+    <a-image src="#laika" scale="2 0.6" position="-4.9 3.75 25.3"></a-image>
+    <a-image src="#leaf" scale="1 1" position="5.5 3.8 -8.49" rotation="0 0 -30"></a-image>
+    <a-image src="#leaf" scale="1 1" position="3.6 2.2 -8.49" rotation="0 0 40"></a-image>
+    <a-image src="#leaf" scale="0.8 0.8" position="5 1.5 -8.49" rotation="0 0 60"></a-image>
+    <a-image src="#leaf" scale="1 1" position="5.5 4 -1.51" rotation="0 180 -10"></a-image>
+    <a-image src="#leaf" scale="0.8 0.8" position="3.8 1.5 -1.51" rotation="0 180 120"></a-image>
+    <a-image src="#leaf" scale="2 2" position="2.24 2.5 1" rotation="0 -90 0"></a-image>
+    <a-image src="#leaf" scale="0.6 0.6" position="6.25 3.45 18.49" rotation="0 180 0"></a-image>
+    <a-image src="#lunea" scale="5.15 0.8" position="-2.24 3.45 -21.6" rotation="0 90 0"></a-image>
+    <a-image src="#lunea" scale="3.22 0.5" position="-4.85 3.8 8.49" rotation="0 180 0"></a-image>
+    <a-image src="#lunea" scale="3.22 0.5" position="5.1 2.6 18.49" rotation="0 180 0"></a-image>
+    <a-image src="#lunea" scale="3.22 0.5" position="-5 2.8 25.3"></a-image>
+    <a-image src="#luna" scale="2 0.6" position="4.75 1.5 -25.3" rotation="0 180 0"></a-image>
+    <a-image src="#luna" scale="2 0.6" position="0 4.2 24.74" rotation="0 180 0"></a-image>
+    <a-image src="#luna" scale="2 0.6" position="0 4.2 -24.74" ></a-image>
+    <a-image src="#luna" scale="2 0.6" position="-2.8 4.8 -15" rotation="0 -90 0"></a-image>
+    <a-image src="#luna" scale="2 0.6" position="2.8 4.8 15" rotation="0 90 0"></a-image>
+    <a-image src="#mal" scale="1 1" position="-5.5 5.1 1.51"></a-image>
+    <a-image src="#mal" scale="0.6 0.6" position="2.24 2.2 -23.5" rotation="0 270 0"></a-image>
+    <a-image src="#mal" scale="0.6 0.6" position="-6.5 3.75 25.3"></a-image>
+    <a-image src="#mal" scale="0.75 0.75" position="4 4.75 11.51" rotation="0 0 -15"></a-image>
+    <a-image src="#mal" scale="0.75 0.75" position="5 1.3 11.51" rotation="0 0 20"></a-image>
+    <a-image src="#mal" position="5.8 3.75 11.511" rotation="0 0 -5"></a-image>
 
     <a-sphere src="#earth" position="30 0 250" scale="10 10 10"></a-sphere>
     <a-sphere src="#moon" position="20 10 230" scale="5 5 5"></a-sphere>
