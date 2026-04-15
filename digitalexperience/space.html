@@ -6,6 +6,7 @@
     <title>Deep Space</title>
      <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
      <script src="https://unpkg.com/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
 
 </head>
 <body>
@@ -38,7 +39,7 @@
         <a-asset-item id="pipe2" src="assets/pipe_bent.glb"></a-asset-item>
         <a-asset-item id="pipe3" src="assets/enjn_pipe.glb"></a-asset-item>
 
-        <a-mixin id="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
+        <a-mixin id="floor" class="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
         <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: 0.5; roughness: 0.5" shadow static-body ></a-mixin>
         <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" class="floor" shadow ></a-mixin>
         <a-mixin id="window" geometry="primitive: box; depth: 0.5" material="color: #f6eae6; metalness: 0.5; opacity: 0.25" shadow static-body ></a-mixin>
@@ -210,9 +211,10 @@
     <a-gltf-model src="#pipe1" position="-3.5 1.1 1.72" rotation="90 0 0" shadow></a-gltf-model>
     <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-3.6 1.65 8.3" shadow rotation="90 -90 0"></a-gltf-model>
     <a-gltf-model src="#pipe1" position="-4.95 1.85 8.3" rotation="0 90 0" shadow ></a-gltf-model>
-    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-6.3 1.65 8.3" shadow rotation="90 90 0></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-6.3 1.65 8.3" shadow rotation="90 90 0"></a-gltf-model>
     <a-gltf-model src="#pipe1" position="-3.39 0.3 8.3" rotation="90 90 0" shadow ></a-gltf-model>
-    
+    <a-gltf-model src="#pipe1" position="-3.39 0.3 8.3" rotation="90 90 0" shadow ></a-gltf-model>
+
     <a-sphere src="#earth" position="30 0 250" scale="10 10 10"></a-sphere>
     <a-sphere src="#moon" position="20 10 230" scale="5 5 5"></a-sphere>
 
