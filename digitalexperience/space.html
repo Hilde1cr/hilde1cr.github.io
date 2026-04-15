@@ -33,6 +33,11 @@
         <img id="luna" src="assets/luneaword.png">
         <img id="mal" src="assets/malicon.png">
 
+        <a-asset-item id="fan" src="assets/exhaust_fan.glb"></a-asset-item>
+        <a-asset-item id="pipe1" src="assets/pipe_straight.glb"></a-asset-item>
+        <a-asset-item id="pipe2" src="assets/pipe_bent.glb"></a-asset-item>
+        <a-asset-item id="pipe3" src="assets/enjn_pipe.glb"></a-asset-item>
+
         <a-mixin id="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
         <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: 0.5; roughness: 0.5" shadow static-body ></a-mixin>
         <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" class="floor" shadow ></a-mixin>
@@ -177,6 +182,37 @@
     <a-image src="#mal" scale="0.75 0.75" position="5 1.3 11.51" rotation="0 0 20"></a-image>
     <a-image src="#mal" position="5.8 3.75 11.511" rotation="0 0 -5"></a-image>
 
+    <a-gltf-model src="#fan" scale="10 10 10" position="25.3 0.8 -6.7" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="27.3 2.4 27" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="25.6 2.4 27" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="-27.3 2.4 -27" rotation="0 180 0" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="-25.6 2.4 -27" rotation="0 180 0" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="-0.5 -0.1 -7" rotation="0 90 0" gltf-model="assets/exhaust_fan.glb" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="-0.5 -0.1 -5.3" rotation="0 90 0" gltf-model="assets/exhaust_fan.glb" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="0.5 -0.1 7" rotation="0 -90 0" gltf-model="assets/exhaust_fan.glb" shadow ></a-gltf-model>
+    <a-gltf-model src="#fan" scale="10 10 10" position="0.5 -0.1 5.3" rotation="0 -90 0" gltf-model="assets/exhaust_fan.glb" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="2 4.3 -12.9" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="2 4.5 -11.55" rotation="0 180 0" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe3" scale="0.015 0.015 0.015" position="2 3.5 -10.5" rotation="0 -90 90" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="2 3.7 -10.15" rotation="0 180 0" shadow></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="2 5.05 -9.95" shadow rotation="90 0 0"></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="-2 4.3 12.9" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-2 4.5 11.55" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe3" scale="0.015 0.015 0.015" position="-2 3.5 10.5" rotation="0 90 90" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-2 3.7 10.15" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="-2 5.05 9.95" shadow rotation="90 0 0"></a-gltf-model>
+    <a-gltf-model src="#pipe3" scale="0.015 0.015 0.015" position="2 3.5 -10.5" rotation="0 -90 90" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe3" scale="0.015 0.015 0.015" position="-4.4 0.98 1.7" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-3.7 5.55 1.72" shadow rotation="-90 90 0"></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-3.7 4.45 1.72" shadow rotation="90 -90 0"></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="-4.4 0 1.72" rotation="90 0 0" shadow></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="-3.5 3.1 1.72" rotation="90 0 0" shadow></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="-3.5 1.1 1.72" rotation="90 0 0" shadow></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-3.6 1.65 8.3" shadow rotation="90 -90 0"></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="-4.95 1.85 8.3" rotation="0 90 0" shadow ></a-gltf-model>
+    <a-gltf-model src="#pipe2" scale="0.35 0.35 0.35" position="-6.3 1.65 8.3" shadow rotation="90 90 0></a-gltf-model>
+    <a-gltf-model src="#pipe1" position="-3.39 0.3 8.3" rotation="90 90 0" shadow ></a-gltf-model>
+    
     <a-sphere src="#earth" position="30 0 250" scale="10 10 10"></a-sphere>
     <a-sphere src="#moon" position="20 10 230" scale="5 5 5"></a-sphere>
 
