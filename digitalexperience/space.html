@@ -7,14 +7,62 @@
      <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
      <script src="https://unpkg.com/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
+    #startOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(179, 27, 27, 0.92);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+    }
+
+    #startOverlay h1 {
+      margin-bottom: 12px;
+      font-size: 2rem;
+    }
+
+    #startOverlay p {
+      margin-bottom: 24px;
+      max-width: 500px;
+      padding: 0 20px;
+      line-height: 1.5;
+    }
+
+    #startButton {
+      padding: 14px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #startOverlay.hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
+
+     <div id="startOverlay">
+    <h1>Welcome</h1>
+    <p>Click below to start the experience and enable sound.</p>
+    <button id="startButton">Start Experience</button>
+  </div>
 
     <a-scene>
     <a-assets>
 
-        <img id="floor-pattern" src="https://static.vecteezy.com/system/resources/thumbnails/026/828/138/small/birthday-silver-triangular-confetti-png.png" />
+        <img id="floor-pattern" src="assets/ftexn2.png" />
         <img id="roof-pattern" src="https://static.vecteezy.com/system/resources/thumbnails/036/065/376/small/seamless-honeycomb-shape-motifs-pattern-beehive-or-bee-house-form-can-use-for-decoration-ornate-carpet-pattern-fashion-fabric-textile-tile-mosaic-wallpaper-wrapping-cover-background-etc-png.png" />
         <img id="aperol" src="assets/aperol.png" />
         <img id="germany" src="assets/germany.png" />
@@ -52,11 +100,13 @@
         <a-asset-item id="o2" src="assets/oxygen_station.glb"></a-asset-item>
         <a-asset-item id="sun" src="assets/sun.glb"></a-asset-item>
 
-        <a-mixin id="floor" class="floor" geometry="primitive: box; height: 0.5 " material="emissive: #ede5dd; src: #floor-pattern; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
+        <audio id="clematis" src="assets/my_clematis.mp3" preload="auto"></audio>
+
+        <a-mixin id="floor" class="floor" geometry="primitive: box; height: 0.5 " material="color: #ede5dd; src: #floor-pattern; metalness: 0.5; roughness: 0.5" shadow ></a-mixin>
         <a-mixin id="wall" geometry="primitive: box; depth: 0.5 " material="color: #f3efed; metalness: 0.5; roughness: 0.5" shadow static-body ></a-mixin>
         <a-mixin id="roof" geometry="primitive: box; height: 0.5 " material="emissive: #e3dcd4; src: #roof-pattern; metalness: 0.25" class="floor" shadow ></a-mixin>
         <a-mixin id="window" geometry="primitive: box; depth: 0.5" material="color: #f6eae6; metalness: 0.5; opacity: 0.25" shadow static-body ></a-mixin>
-        <a-mixin id="light" geometry="primitive: cylinder; radius: 0.125; height: 4.5" material="color: #6fc7b4; opacity: 0.75" shadow ></a-mixin>
+        <a-mixin id="light" geometry="primitive: cylinder; radius: 0.125; height: 4.5" material="color: #6fc7b4; opacity: 0.75" ></a-mixin>
 
     </a-assets>
 
@@ -298,11 +348,35 @@
     <a-gltf-model src="#seat" position="-3.6 0.7 -32.5" shadow="" rotation="0 180 0"></a-gltf-model>
     <a-gltf-model src="#screen" position="7.1 1 -27.4" rotation="0 90 0" scale="8 8 8"></a-gltf-model>
 
-    <a-sphere src="#earth" position="30 0 250" scale="10 10 10"></a-sphere>
-    <a-sphere src="#moon" position="20 10 230" scale="5 5 5"></a-sphere>
-    <a-gltf-model src="#sun" position="10 0 390" metalness="1" emissive="#fff"></a-gltf-model>
+    <a-sphere src="#earth" rotation="0 23.5 0" position="30 0 250" scale="10 10 10" light="decay: 0.5; distance: 200; intensity: 300; type: point" animation="property: rotation; to: 0 360 0; loop: true; dur: 60000; easing: linear"></a-sphere>></a-sphere>
+    <a-sphere src="#moon" position="13 20 240" scale="5 5 5" light="distance: 100; intensity: 50; type: point" animation="property: rotation; to: 0 -360 0; loop: true; dur: 40000; easing: linear"></a-sphere>
+    <a-gltf-model src="#sun" position="10 0 390" metalness="1" emissive="#fff" animation="property: rotation; to: 0 -360 0; loop: true; dur: 30000; easing: linear"></a-gltf-model>
+
+    <a-light position="0 3.5 0" light="color: #ffffff; intensity: 5; type: point"></a-light>
+    <a-light position="0 3.5 12" light="color: #ffffff; intensity: 5; type: point"></a-light>
+    <a-light position="0 3.5 -12" light="color: #ffffff; intensity: 5; type: point"></a-light>
+    <a-light position="0 5.5 -29" light="color: #ffffff; intensity: 10; type: point"></a-light>
+    <a-light position="0 5.5 29" light="color: #ffffff; intensity: 10; type: point"></a-light>
+    <a-light position="10 0 390" light="color: #ffffff; intensity: 0.6; castShadow: true"></a-light>
+
+    <a-entity sound="src: #clematis; autoplay: true; loop: true; maxDistance:1; positional: true" position="0 2 35"></a-entity>
 
     </a-scene>
+  <script>
+    const startButton = document.querySelector('#startButton');
+    const startOverlay = document.querySelector('#startOverlay');
 
+    startButton.addEventListener('click', () => {
+      const sounds = document.querySelectorAll('a-sound');
+
+      sounds.forEach((el) => {
+        if (el.components.sound) {
+          el.components.sound.playSound();
+        }
+      });
+
+      startOverlay.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>
